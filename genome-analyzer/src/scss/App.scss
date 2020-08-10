@@ -1,0 +1,220 @@
+$ink:#000a12;
+$sunnyside: #ffd740;
+
+body {
+  background-color: $ink;
+}
+
+.App {
+  text-align: center;
+  display:grid;
+  grid-template-columns: repeat(11,1fr);
+
+}
+
+.header{
+    display:flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+
+    a {
+      margin:0px;
+      padding:0px;
+      width:0px;
+    }
+
+.logo {
+  margin:0px;
+  padding:0px;
+}
+
+  img {
+    height:100%;
+  }
+
+  .Menu {
+    margin-right: 20px;
+    justify-content: center;
+    display:flex;
+    flex-direction: row;
+
+
+    .MenuItem {
+      margin: auto 10px;
+
+      a {
+        color:white;
+        text-decoration: none;
+        padding-bottom:1px;
+        transition: 0.1s border-bottom;
+      }
+
+      a:hover {
+        border-bottom: 3px solid $sunnyside;
+        padding-bottom:1px;
+        transition: 0.1s border-bottom;
+      }
+
+    }
+  }
+
+
+  grid-column: 1/12;
+  grid-row: 1;
+  height:50px;
+  background-color:$ink;
+  width:100%;
+}
+
+.hero{
+  grid-column: 1/12;
+  grid-row: 2/4;
+  height:300px;
+  background-image:url('../images/background.jpg');
+  background-size: cover;
+  background-position: bottom;
+  width:100%;
+}
+
+.float{
+  display:flex;
+  flex-direction: column;
+  grid-column: 1/6;
+  margin: 40px 40px;
+  grid-row: 2 / 4;
+  z-index: 5;
+  background-color:$ink;
+  width:100%;
+  height:175px;
+
+  h1 {
+    color:white;
+    text-align: left;
+    margin:20px;
+    font-size: 25px;
+    font-weight:400;
+  }
+
+  input {
+    border: 1px solid white;
+  }
+
+  input[type='file'] {
+    display:none;
+  }
+
+  .custom-file-upload {
+    color:white;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    width:200px;
+    margin-left:20px;
+}
+
+}
+
+.content {
+  text-align:left;
+  font-size:25px;
+  grid-column:1/12;
+  grid-row: 2 / 6;
+  display:flex;
+  justify-content: space-between;
+  .sequence {
+    margin:20px;
+    margin-right:0px;
+    p {
+      margin-left:20px;
+      color:$ink;
+      font-weight:500;
+    }
+    width:700px;
+    background-color: white;
+    .seq{
+      border-top:1px solid lightgray;
+      height:400px;
+      background-size: cover;
+      background-position: center;
+      background-image: url('../images/align.png')
+    }
+  }
+  .taxonomy {
+    margin:20px;
+    p {
+      margin-left:20px;
+      color:$ink;
+      font-weight:500;
+    }
+    background-color: white;
+    width:700px;
+    .tax{
+      border-top:1px solid lightgray;
+      width:100%;
+      height:400px;
+      background-size: cover;
+      background-position: center;
+      background-image: url('../images/tax.jpg')
+    }
+  }
+}
+
+.people {
+
+  grid-column:2/11;
+  grid-row: 3 / 4;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin:20px;
+  align-items: center;
+
+  .person {
+    margin:20px;
+    margin-top:50px;
+    width: 100%;
+    background-color: $sunnyside;
+
+    .name {
+      font-size:20px;
+      font-weight:900;
+    }
+
+    p {
+      margin:10px;
+    }
+
+    .team1 {
+      height:250px;
+      width:100%;
+      background-image:url('../images/luke.jpg');
+      background-position:center;
+      background-size:cover;
+      border-bottom:1px solid lightgray;
+    }
+
+    .team2 {
+      height:250px;
+      width:100%;
+      background-image:url('../images/leia.jpg');
+      background-position:top;
+      background-size:cover;
+      border-bottom:1px solid lightgray;
+
+    }
+
+    .team3 {
+      height:250px;
+      width:100%;
+      background-image:url('../images/mace.jpg');
+      background-position:top;
+      background-size:cover;
+      border-bottom:1px solid lightgray;
+
+    }
+
+  }
+
+}
