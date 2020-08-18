@@ -1,0 +1,12 @@
+runtime: python38
+
+handlers:
+
+- url: /
+  script: app.index
+
+- url: /predict_upload
+  script: app.predict_upload
+
+- url: /.*
+  script: auto

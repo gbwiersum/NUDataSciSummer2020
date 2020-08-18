@@ -24,15 +24,14 @@ class Home extends Component {
     const data = new FormData()
     data.append('file', event.target.files[0])
     console.log(data)
-    axios.post("/predict_upload", data, {
-         // receive two    parameter endpoint url ,form data
-    }).then(res => { // then print response status
-      console.log(res)
-      console.log(res.data)
-      var data = res.data
-      this.setState({stopSignPrediction: data, isPredicted: true})
-      this.setState({alertText:String(this.stopSignPrediction)})
- })
+    //https://genomeanalyzer.wl.r.appspot.com
+    axios.post("http://localhost:5000/predict_upload", data, {
+    }).then(
+    axios.get("http://localhost:5000/predict_get").then(function (response) {
+        console.log(response);
+        console.log('dealio');
+      })
+    )
 }
 
 render(){
@@ -42,7 +41,7 @@ render(){
       <div className="float">
         <h1>Viral genome classification using deep learning.</h1>
         {this.state.isPredicted ? <p class="Alert">{this.state.stopSignPrediction}</p> : null}
-        <label class="custom-file-upload">
+        <label className="custom-file-upload">
           <input className="Input" type="file" name="file" onChange={this.uploadHandler}/>
             Upload File
         </label>
