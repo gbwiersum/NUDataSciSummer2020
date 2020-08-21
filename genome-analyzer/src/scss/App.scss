@@ -12,15 +12,32 @@ body {
 
 }
 
+.help {
+  background-color: transparent;
+  border:none;
+  color:white;
+  font-size: 22px;
+
+  svg {
+    margin:auto;
+  }
+}
+
 .inputSection {
+
   display:flex;
   flex-direction: row;
   align-items: center;
   p {
+    font-size: 14px;
+    background-color:white;
     margin-top:10px;
-    margin-left:20px;
+    margin-left:10px;
+    margin-right:40px;
     text-align: left;
-    color:white;
+    padding:5px;
+    border-radius:5px;
+    box-shadow:2px 2px 2px rgba(0, 11, 20, 0.46);
 }
 }
 
@@ -32,6 +49,19 @@ body {
   align-items: center;
   p {
     color:white;
+    margin-left:20px;
+  }
+}
+
+.predictionSection{
+  padding-top:20px;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  p {
+    color:white;
+    margin: 0px;
+    margin-top:20px;
     margin-left:20px;
   }
 }
@@ -106,10 +136,11 @@ body {
   flex-direction: column;
   grid-column: 1/6;
   margin: 40px 40px;
-  grid-row: 2 / 4;
+  grid-row: 2;
   z-index: 5;
   background-color:$ink;
   width:100%;
+  padding-bottom:40px;
 
   h1 {
     color:white;
@@ -121,6 +152,7 @@ body {
 
   input {
     border: 1px solid white;
+    width:200px;
   }
 
   input[type='file'] {
@@ -135,6 +167,13 @@ body {
     cursor: pointer;
     width:200px;
     margin-left:20px;
+    transition: 1s background-color, border;
+}
+
+.custom-file-upload:hover {
+  color:black;
+  background-color:white;
+  border:1px solid transparent;
 }
 
 }

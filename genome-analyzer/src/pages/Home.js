@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Ripple} from 'react-spinners-css';
+import { MdHelp } from "react-icons/md";
 
 class Home extends Component {
   constructor() {
     super();
     this.state = {
       prediction:0,
+      predicted:false,
+      virusName:'',
       loading:false,
       info:false
     };
@@ -18,15 +21,21 @@ class Home extends Component {
   }
 
   getData = async (file) => {
+    this.setState({predicted:false})
     this.setState({loading:true})
     console.log('About to send POST')
     await axios.post("http://localhost:5000/predict_upload", file, {
-    }).then(response => console.log(response))
-
+    }).then(response =>
+      this.setState({prediction:response.data})
+    )
+    this.setState({loading:false})
+    this.setState({predicted:true})
+    console.log(this.state.prediction)
     console.log('Data POSTed')
   }
 
  uploadHandler =  async (event) => {
+    this.setState({loading:true})
     console.log(event.target.files[0])
     const data = new FormData()
     data.append('file', event.target.files[0])
@@ -53,7 +62,7 @@ render(){
           <input className="Input" type="file" name="file" onChange={this.uploadHandler}/>
             Upload file
         </label>
-        <button onClick={() => this.infoToggle()}><p>i</p></button>
+        <button className='help' onClick={() => this.infoToggle()}><MdHelp/></button>
         {this.state.info ? <p>Upload a .txt file containing a viral genome segment in FASTA format.</p>: null}
         </div>
         }
@@ -63,6 +72,12 @@ render(){
             <Ripple className='loading' color='white'/>
             <p>This can take several minutes. Great time to make a coffee.</p>
           </div> : null}
+
+          {this.state.predicted ?
+            <div className="predictionSection">
+              <p>This virus is genetically closest to {this.state.prediction}.</p>
+            </div> : null}
+
 
 
 
